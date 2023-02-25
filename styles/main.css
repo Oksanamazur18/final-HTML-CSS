@@ -1,0 +1,767 @@
+/*
+  Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+  - The "symbol *" part is to solve Firefox SVG sprite bug
+*/
+@import url("../styles/fonts.css");
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+.container {
+  width: 1440px;
+  height: 3451px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.container .header {
+  width: 1440px;
+  height: 700px;
+  background-image: url("../images/Background.png");
+  padding: 46px 291px 0 249px;
+  margin-bottom: 89px;
+}
+.container .header__menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 148px;
+}
+.container .header__menu .logo {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.container .header__menu .account {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  margin-top: -5px;
+}
+.container .header__menu .account__log-in {
+  margin-right: 16px;
+}
+.container .header__menu .account__sign-in {
+  text-align: center;
+  width: 90px;
+  height: 36px;
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+}
+.container .header__article {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 63px;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 40px;
+  margin-bottom: 27.5px;
+}
+.container .header__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: #f7f3f2;
+  margin-bottom: 33px;
+  margin-left: 44px;
+}
+.container .header__text-border {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  width: 225px;
+  height: 40px;
+  background: #ff4e50;
+  border-radius: 40px;
+  margin: 0 607px 0 360px;
+  padding-top: 11px;
+}
+.container .main {
+  width: 940px;
+  margin: 0 auto;
+}
+.container .main__header {
+  height: 32px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  text-align: center;
+  color: #444444;
+  margin-bottom: 35px;
+}
+.container .main__how-works {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 89px;
+}
+.container .main__how-works .step1 {
+  width: 300px;
+  height: 400px;
+  background-image: url("../images/Step 1 image.png");
+  padding: 224px 25px 21px 25px;
+}
+.container .main__how-works .step1__button {
+  width: 70px;
+  height: 20px;
+  background: #ff4e50;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 5px 14px 3px 14px;
+  margin-bottom: 18px;
+}
+.container .main__how-works .step1__main-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.container .main__how-works .step1__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+  color: #e3e3e3;
+}
+.container .main__how-works .step2 {
+  width: 300px;
+  height: 400px;
+  background-image: url("../images/Step 1 image (2).png");
+  padding: 255px 25px 21px 25px;
+}
+.container .main__how-works .step2__button {
+  width: 70px;
+  height: 20px;
+  background: #ff4e50;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 5px 12px 3px 14px;
+  margin-bottom: 18px;
+}
+.container .main__how-works .step2__main-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+.container .main__how-works .step2__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+  color: #e3e3e3;
+}
+.container .main__how-works .step3 {
+  width: 300px;
+  height: 400px;
+  background-image: url("../images/Step 1 image (1).png");
+  padding: 224px 25px 21px 25px;
+}
+.container .main__how-works .step3__button {
+  width: 70px;
+  height: 20px;
+  background: #ff4e50;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 5px 12px 3px 14px;
+  margin-bottom: 18px;
+}
+.container .main__how-works .step3__main-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.container .main__how-works .step3__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+  color: #e3e3e3;
+}
+.container .main__avatars {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 54px;
+}
+.container .main__avatars .container-avatar {
+  width: 221px;
+  height: 205px;
+}
+.container .main__avatars .container-avatar .avatar-photo1 {
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/Avatar0.png");
+  margin: 0 auto 18px;
+}
+.container .main__avatars .container-avatar .avatar-text__name {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #444444;
+  margin-bottom: 22px;
+}
+.container .main__avatars .container-avatar .avatar-text__info {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #666666;
+}
+.container .main__avatars .avatar-photo2 {
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/Avatar.png");
+  margin: 0 auto 18px;
+}
+.container .main__avatars .avatar-photo3 {
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/Avatar (1).png");
+  margin: 0 auto 18px;
+}
+.container .main__avatars .avatar-photo4 {
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/Avatar (2).png");
+  margin: 0 auto 18px;
+}
+.container .main .see-other {
+  display: block;
+  width: 180px;
+  height: 40px;
+  background: #ffffff;
+  border: 2px solid #ff4e50;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ff4e50;
+  margin: 0 auto 90px;
+  padding: 12px 19px 11px 24px;
+}
+.container .main__activity {
+  height: 989px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 71px;
+}
+.container .main__activity .sport {
+  width: 300px;
+  height: 310px;
+  background-image: url(../images/Sport.png);
+}
+.container .main__activity .health {
+  width: 300px;
+  height: 310px;
+  background-image: url(../images/Healath.png);
+}
+.container .main__activity .extreme {
+  width: 300px;
+  height: 310px;
+  background-image: url(../images/Extreme.png);
+}
+.container .main__activity .games {
+  width: 300px;
+  height: 310px;
+  background-image: url(../images/Games.png);
+}
+.container .main__activity .culture {
+  width: 620px;
+  height: 310px;
+  background-image: url(../images/Culture.png);
+}
+.container .main__activity .relaxation {
+  width: 620px;
+  height: 310px;
+  background-image: url(../images/relaxation.png);
+}
+.container .main__activity .travelling {
+  width: 300px;
+  height: 310px;
+  background-image: url(../images/Games\ Copy.png);
+}
+.container .main .last-header {
+  margin-bottom: 52px;
+}
+.container .main__question {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 14px;
+  text-align: center;
+  color: #666666;
+  margin-bottom: 25px;
+}
+.container .main__input {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.container .main__input .input-interests {
+  width: 299px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+  border-radius: 3px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999999;
+  margin-right: 10px;
+  padding: 14px 157.58px 10px 13.62px;
+}
+.container .main__input .search {
+  width: 172.12px;
+  height: 40px;
+  background: #ff4e50;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  padding: 12px 25.12px 11px 30px;
+}
+.container .footer-start {
+  width: 1440px;
+  height: 2px;
+  background: #ff4e50;
+}
+.container .footer {
+  width: 1440px;
+  height: 224px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 38px 247px 36px 249px;
+}
+.container .footer__menu {
+  width: 541px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container .footer__menu .main-page {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ff4e50;
+}
+.container .footer__menu .company {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #444444;
+}
+.container .footer__menu .company__info {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 26px;
+  color: #999999;
+  margin-top: 11px;
+}
+.container .footer__menu .partners {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #444444;
+}
+.container .footer .design__text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: #cccccc;
+  text-align: right;
+  margin-bottom: 7px;
+}
+.container .footer .design__logo {
+  width: 120px;
+  height: 32px;
+  background-image: url(../images/Bitmap2.png);
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 1450px) {
+  .container {
+    width: 1200px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    width: 768px;
+    height: 3679px;
+  }
+  .container .header {
+    width: 768px;
+    height: 700px;
+    padding: 40px 50px 0 48px;
+    background-position: center;
+  }
+  .container .header__article {
+    margin-bottom: 28, 5px;
+  }
+  .container .header__text-border {
+    margin: 0 auto;
+  }
+  .container .main {
+    width: 748px;
+  }
+  .container .main .step1 {
+    width: 236px;
+    height: 400px;
+  }
+  .container .main .step2 {
+    width: 236px;
+    height: 400px;
+  }
+  .container .main .step3 {
+    width: 236px;
+    height: 400px;
+  }
+  .container .main__avatars {
+    width: 492px;
+    margin: 0 auto 40px;
+  }
+  .container .main .sport {
+    width: 236px;
+    height: 310px;
+    background-image: url(../images/Sport2.png);
+  }
+  .container .main .health {
+    width: 236px;
+    height: 310px;
+    background-image: url(../images/Healath2.png);
+  }
+  .container .main .extreme {
+    width: 236px;
+    height: 310px;
+    background-image: url(../images/Extreme2.png);
+  }
+  .container .main .games {
+    width: 236px;
+    height: 310px;
+    background-image: url(../images/Games2.png);
+  }
+  .container .main .culture {
+    width: 492px;
+    height: 310px;
+    background-image: url(../images//Culture2.png);
+  }
+  .container .main .relaxation {
+    width: 492px;
+    height: 310px;
+    background-image: url(../images/Culture\ Copy2.png);
+  }
+  .container .main .travelling {
+    width: 236px;
+    height: 310px;
+    background-image: url(../images/Games\ Copy2.png);
+  }
+  .container .footer-start {
+    width: 768px;
+  }
+  .container .footer {
+    width: 768px;
+    padding: 36px 37px 20px 39px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .container {
+    width: 320px;
+    height: 100%;
+  }
+  .container .header {
+    width: 320px;
+    height: 540px;
+    padding: 0 20px;
+    background-position: center;
+    position: relative;
+    margin-bottom: 34px;
+  }
+  .container .header__menu {
+    margin-bottom: 0;
+  }
+  .container .header .logo {
+    margin: 153px auto 26.5px;
+  }
+  .container .header .account {
+    position: absolute;
+    top: 20px;
+    right: 93px;
+  }
+  .container .header__article {
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    margin: 0 auto 5.5px;
+  }
+  .container .header__text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 33px;
+    margin: 0 auto 15px;
+  }
+  .container .header__text-border {
+    margin: 0 auto;
+  }
+  .container .main {
+    width: 300px;
+  }
+  .container .main__how-works {
+    height: 734px;
+    align-items: stretch;
+    margin-bottom: 36px;
+  }
+  .container .main__how-works .step1 {
+    width: 300px;
+    height: 240px;
+    padding: 69px 30px 16px 20px;
+  }
+  .container .main__how-works .step2 {
+    width: 300px;
+    height: 240px;
+    padding: 98px 30px 16px 20px;
+  }
+  .container .main__how-works .step3 {
+    width: 300px;
+    height: 240px;
+    padding: 69px 30px 16px 20px;
+  }
+  .container .main__avatars {
+    width: 300px;
+    margin: 0 auto 40px;
+    justify-content: center;
+  }
+  .container .main .see-other {
+    width: 280px;
+    height: 40px;
+    padding: 12px 69px 11px 74px;
+    margin-bottom: 35px;
+  }
+  .container .main__activity {
+    margin-bottom: 35px;
+  }
+  .container .main__activity .sport {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Sport3.png);
+  }
+  .container .main__activity .health {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Healath3.png);
+  }
+  .container .main__activity .extreme {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Extreme3.png);
+  }
+  .container .main__activity .games {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Games3.png);
+  }
+  .container .main__activity .culture {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Culture3.png);
+  }
+  .container .main__activity .relaxation {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Culture\ Copy3.png);
+  }
+  .container .main__activity .travelling {
+    width: 300px;
+    height: 120px;
+    background-image: url(../images/Games\ Cop3y.png);
+  }
+  .container .main .input-interests {
+    width: 280px;
+    height: 40px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 14px 0 10px 13.62px;
+  }
+  .container .main .search {
+    width: 280px;
+    height: 40px;
+    text-align: center;
+  }
+  .container .footer-start {
+    width: 320px;
+  }
+  .container .footer {
+    flex-direction: column;
+    justify-content: center;
+    width: 320px;
+    padding: 0;
+  }
+  .container .footer__menu {
+    width: 320px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container .footer__menu .main-page {
+    width: 320px;
+    text-align: center;
+    margin: 0 0 13px;
+  }
+  .container .footer__menu .partners {
+    width: 320px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .container .footer__menu .company {
+    text-align: center;
+    width: 320px;
+  }
+  .container .footer__menu .company__info {
+    width: 280px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .container .footer__menu .company__info li {
+    margin-right: 15px;
+  }
+  .container .footer .design__text {
+    text-align: center;
+  }
+  .container .footer .design__logo {
+    margin: 0 auto;
+  }
+}/*# sourceMappingURL=main.css.map */
